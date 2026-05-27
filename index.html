@@ -606,7 +606,30 @@ if (pi) {
 // SHOP
 function selSz(btn, sz) { document.querySelectorAll('.sbtn').forEach(b => b.classList.remove('on')); btn.classList.add('on'); document.getElementById('sel-size').textContent = sz; }
 function chgQty(d) { const el = document.getElementById('qty'); el.value = Math.max(1, Math.min(10, parseInt(el.value)+d)); }
-function buy() { const qty = document.getElementById('qty').value, sz = document.getElementById('sel-size').textContent; alert(`✅ Order Summary\n\nProduct: PostureFix Pro\nSize: ${sz}\nQty: ${qty}\nTotal: €${(34.99*parseInt(qty)).toFixed(2)}\n\nThank you! (Prototype store)`); }
+async function buy() {
+    const qty = document.getElementById('qty').value;
+    const sz  = document.getElementById('sel-size').textContent;
+    const btn = document.querySelector('.add-btn') || document.querySelector('.btn-glow');
+    const original = btn ? btn.innerHTML : '';
+    if (btn) { btn.innerHTML = '⏳ Processing...'; btn.disabled = true; }
+    try {
+        const res = await fetch('/.netlify/functions/create-checkout', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ size: sz, quantity: qty }),
+        });
+        const data = await res.json();
+        if (data.url) {
+            window.location.href = data.url;
+        } else {
+            alert('Something went wrong. Please try again.');
+            if (btn) { btn.innerHTML = original; btn.disabled = false; }
+        }
+    } catch {
+        alert('Connection error. Please try again.');
+        if (btn) { btn.innerHTML = original; btn.disabled = false; }
+    }
+}
 
 // FAQ
 function faq(btn) { const item = btn.closest('.fitem'), open = item.classList.contains('op'); document.querySelectorAll('.fitem').forEach(i => i.classList.remove('op')); if (!open) item.classList.add('op'); }

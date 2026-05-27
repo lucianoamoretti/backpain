@@ -1,0 +1,17 @@
+[build]
+  functions = "netlify/functions"
+  publish   = "."
+
+[functions]
+  node_bundler = "esbuild"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options        = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy        = "strict-origin-when-cross-origin"
+
+# Stripe requires raw body for webhook signature verification
+[[plugins]]
+# no plugins needed — raw body is preserved by default in Netlify Functions
