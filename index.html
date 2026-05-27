@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PostureFix Pro Ireland — Fix Your Posture, End Back Pain</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body { font-family: 'Inter', system-ui, sans-serif; color: #111827; background: #fff; overflow-x: hidden; line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; height: auto; display: block; }
+
+        :root {
+            --navy: #0F2744; --blue: #1D4ED8; --blue-light: #3B82F6;
+            --green: #16A34A; --green-dark: #15803D; --red: #DC2626; --orange: #EA580C;
+            --gray-50: #F9FAFB; --gray-100: #F3F4F6; --gray-200: #E5E7EB;
+            --gray-400: #9CA3AF; --gray-600: #4B5563; --gray-800: #1F2937;
+            --radius: 12px; --shadow: 0 4px 24px rgba(0,0,0,0.08); --shadow-lg: 0 8px 40px rgba(0,0,0,0.14);
+        }
+
+        .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+        .section { padding: 88px 0; }
+        .text-center { text-align: center; }
+
+        /* TYPOGRAPHY */
+        .headline-xl { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; }
+        .headline-lg { font-size: clamp(1.6rem, 3vw, 2.5rem); font-weight: 800; line-height: 1.2; letter-spacing: -0.01em; }
+        .body-lg { font-size: 1.125rem; color: var(--gray-600); line-height: 1.75; }
+        .body-md { font-size: 1rem; color: var(--gray-600); line-height: 1.7; }
+
+        /* BUTTONS */
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+            padding: 16px 32px; border-radius: 50px; font-weight: 700; font-size: 1rem;
+            cursor: pointer; border: none; transition: all 0.2s ease; font-family: inherit;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #16A34A, #15803D); color: #fff;
+            box-shadow: 0 4px 20px rgba(22,163,74,0.4);
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(22,163,74,0.5); }
+        .btn-lg { padding: 20px 48px; font-size: 1.125rem; }
+        .btn-full { width: 100%; }
+
+        /* ANNOUNCEMENT */
+        .announcement {
+            background: linear-gradient(90deg, #0F2744, #1D4ED8, #0F2744);
+            background-size: 200%; animation: bgSlide 5s infinite alternate;
+            color: #fff; text-align: center; padding: 11px 24px; font-size: 0.875rem; font-weight: 500;
+        }
+        @keyframes bgSlide { from { background-position: 0% } to { background-position: 100% } }
+
+        /* NAVBAR */
+        .navbar {
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(255,255,255,0.95); backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--gray-200); padding: 14px 0;
+        }
+        .navbar .container { display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 1.4rem; font-weight: 900; color: var(--navy); }
+        .logo span { color: var(--blue); }
+        .nav-links { display: flex; gap: 32px; list-style: none; }
+        .nav-links a { font-size: 0.9rem; font-weight: 500; color: var(--gray-600); transition: color 0.2s; }
+        .nav-links a:hover { color: var(--navy); }
+        .cart-btn {
+            display: flex; align-items: center; gap: 8px;
+            background: var(--navy); color: #fff; padding: 11px 22px;
+            border-radius: 50px; font-size: 0.875rem; font-weight: 600;
+            cursor: pointer; border: none; transition: all 0.2s; font-family: inherit;
+        }
+        .cart-btn:hover { background: var(--blue); transform: translateY(-1px); }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, #0F2744 0%, #1a3a5c 45%, #0d1f35 100%);
+            color: #fff; padding: 88px 0 72px; overflow: hidden; position: relative;
+        }
+        .hero::before {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(ellipse at 65% 40%, rgba(59,130,246,0.18) 0%, transparent 60%);
+        }
+        .hero .container { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; position: relative; }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50px; padding: 7px 18px; font-size: 0.8rem; font-weight: 600;
+            margin-bottom: 24px; color: #93C5FD;
+        }
+        .live-dot { width: 8px; height: 8px; background: #4ADE80; border-radius: 50%; animation: pulse 2s infinite; display: inline-block; }
+        @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+        .hero-title { font-size: clamp(2rem,4.5vw,3.2rem); font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 20px; }
+        .hero-title .highlight { color: #60A5FA; }
+        .hero-sub { font-size: 1.1rem; color: #94A3B8; line-height: 1.7; margin-bottom: 32px; max-width: 480px; }
+        .hero-price { display: flex; align-items: baseline; gap: 12px; margin-bottom: 28px; flex-wrap: wrap; }
+        .price-big { font-size: 2.6rem; font-weight: 900; color: #fff; }
+        .price-old { font-size: 1.1rem; color: #6B7280; text-decoration: line-through; }
+        .price-badge { background: #DC2626; color: #fff; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; align-self: center; }
+        .hero-trust { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
+        .trust-pill { display: flex; align-items: center; gap: 6px; font-size: 0.78rem; color: #CBD5E1; font-weight: 500; }
+        .trust-pill-icon { font-size: 0.9rem; }
+
+        /* PRODUCT VISUAL */
+        .product-visual { position: relative; display: flex; justify-content: center; }
+        .product-card {
+            background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+            backdrop-filter: blur(20px); border-radius: 28px; padding: 32px;
+            width: 100%; max-width: 400px; box-shadow: 0 24px 64px rgba(0,0,0,0.35);
+            animation: float 5s ease-in-out infinite;
+        }
+        @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+        .product-img-box {
+            background: linear-gradient(135deg, #EFF6FF, #DBEAFE, #E0F2FE);
+            border-radius: 20px; padding: 36px; height: 280px;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 20px; position: relative; overflow: hidden;
+        }
+        .product-img-box::after {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(circle at 70% 30%, rgba(255,255,255,0.5), transparent 60%);
+        }
+        .product-stats-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+        .ps-item { text-align: center; background: rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 6px; }
+        .ps-num { font-size: 1rem; font-weight: 800; color: #fff; line-height: 1.2; }
+        .ps-label { font-size: 0.6rem; color: #94A3B8; margin-top: 3px; text-transform: uppercase; letter-spacing: 0.03em; }
+        .floating-badge {
+            position: absolute; background: #fff; border-radius: 14px; padding: 10px 16px;
+            box-shadow: 0 8px 28px rgba(0,0,0,0.18); display: flex; align-items: center; gap: 8px;
+            font-size: 0.78rem; font-weight: 600; color: var(--gray-800); white-space: nowrap; z-index: 2;
+        }
+        .fb-top { top: -14px; right: -16px; }
+        .fb-bot { bottom: 24px; left: -28px; }
+        .fb-stars { color: #FBBF24; }
+
+        /* TRUST BAR */
+        .trust-bar { background: var(--gray-50); border-top: 1px solid var(--gray-200); border-bottom: 1px solid var(--gray-200); padding: 28px 0; }
+        .trust-bar .container { display: flex; justify-content: center; align-items: center; gap: 48px; flex-wrap: wrap; }
+        .ti { display: flex; align-items: center; gap: 12px; }
+        .ti-icon { width: 40px; height: 40px; background: var(--navy); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+        .ti-text strong { display: block; font-size: 0.875rem; font-weight: 700; color: var(--gray-800); }
+        .ti-text span { font-size: 0.75rem; color: var(--gray-400); }
+
+        /* PROBLEM */
+        .problem { background: linear-gradient(140deg, #0d1117, #1a2640); color: #fff; }
+        .problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+        .problem-tag { display: inline-block; background: rgba(239,68,68,0.15); color: #FCA5A5; border: 1px solid rgba(239,68,68,0.3); padding: 6px 16px; border-radius: 50px; font-size: 0.78rem; font-weight: 700; margin-bottom: 20px; letter-spacing: 0.04em; text-transform: uppercase; }
+        .problem-list { list-style: none; display: flex; flex-direction: column; gap: 14px; margin-top: 28px; }
+        .problem-item { display: flex; gap: 14px; padding: 18px; background: rgba(255,255,255,0.05); border-radius: 14px; border-left: 3px solid #EF4444; }
+        .pi-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 1px; }
+        .pi-title { font-size: 0.9rem; font-weight: 600; margin-bottom: 4px; }
+        .pi-sub { font-size: 0.8rem; color: #94A3B8; line-height: 1.5; }
+        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+        .stat-box { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 18px; padding: 28px 22px; text-align: center; }
+        .stat-big { font-size: 2.5rem; font-weight: 900; color: #60A5FA; line-height: 1; margin-bottom: 10px; }
+        .stat-sub { font-size: 0.82rem; color: #94A3B8; line-height: 1.5; }
+
+        /* SECTION LABEL */
+        .section-label { display: inline-block; background: #EFF6FF; color: var(--blue); border: 1px solid #BFDBFE; padding: 6px 18px; border-radius: 50px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 20px; }
+
+        /* PRODUCT SECTION */
+        .product-showcase { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+        .product-main-img {
+            background: linear-gradient(135deg, #EFF6FF, #DBEAFE, #E0F2FE);
+            border-radius: 24px; height: 500px;
+            display: flex; align-items: center; justify-content: center;
+            position: relative; overflow: hidden;
+        }
+        .product-main-img::before {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(circle at 70% 20%, rgba(255,255,255,0.6), transparent 60%);
+        }
+        .product-rating { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
+        .stars { color: #FBBF24; font-size: 1.1rem; }
+        .rating-text { font-size: 0.875rem; color: var(--gray-600); }
+        .product-name { font-size: 1.7rem; font-weight: 900; color: var(--navy); line-height: 1.2; margin-bottom: 14px; }
+        .price-block { display: flex; align-items: baseline; gap: 14px; margin-bottom: 24px; padding: 20px 24px; background: var(--gray-50); border-radius: 16px; border: 2px solid var(--gray-200); }
+        .price-main { font-size: 2.2rem; font-weight: 900; color: var(--green); }
+        .price-was { font-size: 1rem; color: var(--gray-400); text-decoration: line-through; }
+        .price-save { background: #FEF2F2; color: var(--red); padding: 5px 12px; border-radius: 8px; font-size: 0.75rem; font-weight: 700; }
+        .size-label { font-size: 0.875rem; font-weight: 600; margin-bottom: 12px; color: var(--gray-800); }
+        .sizes { display: flex; gap: 10px; margin-bottom: 22px; }
+        .size-btn {
+            width: 52px; height: 52px; border: 2px solid var(--gray-200);
+            border-radius: 10px; font-weight: 600; font-size: 0.875rem;
+            cursor: pointer; transition: all 0.2s; background: #fff; color: var(--gray-700); font-family: inherit;
+        }
+        .size-btn:hover { border-color: var(--blue); color: var(--blue); }
+        .size-btn.active { border-color: var(--navy); background: var(--navy); color: #fff; }
+        .qty-row { display: flex; align-items: center; gap: 16px; margin-bottom: 18px; }
+        .qty-label { font-size: 0.875rem; font-weight: 600; color: var(--gray-800); }
+        .qty-ctrl { display: flex; align-items: center; border: 2px solid var(--gray-200); border-radius: 12px; overflow: hidden; }
+        .qty-btn { width: 44px; height: 44px; background: var(--gray-50); border: none; font-size: 1.3rem; cursor: pointer; font-weight: 600; color: var(--gray-700); font-family: inherit; transition: background 0.15s; }
+        .qty-btn:hover { background: var(--gray-200); }
+        .qty-input { width: 52px; height: 44px; text-align: center; border: none; border-left: 1px solid var(--gray-200); border-right: 1px solid var(--gray-200); font-weight: 700; font-size: 1rem; color: var(--gray-800); outline: none; }
+        .stock-row { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: var(--orange); font-weight: 600; margin-bottom: 18px; }
+        .stock-dot { width: 8px; height: 8px; background: var(--orange); border-radius: 50%; animation: pulse 1.5s infinite; flex-shrink: 0; }
+        .promises { display: flex; flex-direction: column; gap: 10px; padding: 20px; background: var(--gray-50); border-radius: 16px; margin-top: 4px; }
+        .promise { display: flex; align-items: center; gap: 10px; font-size: 0.85rem; font-weight: 500; color: var(--gray-700); }
+        .promise-icon { width: 28px; height: 28px; background: #DCFCE7; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.8rem; }
+
+        /* BENEFITS */
+        .benefits { background: var(--gray-50); }
+        .benefits-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; margin-top: 48px; }
+        .benefit-card { background: #fff; border-radius: 22px; padding: 32px 24px; border: 1px solid var(--gray-200); transition: all 0.3s; }
+        .benefit-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); border-color: #93C5FD; }
+        .b-icon { font-size: 2rem; margin-bottom: 16px; }
+        .b-title { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+        .b-text { font-size: 0.875rem; color: var(--gray-600); line-height: 1.65; }
+
+        /* STEPS */
+        .how-it-works { background: #fff; }
+        .steps-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 32px; margin-top: 48px; position: relative; }
+        .steps-grid::before { content:''; position:absolute; top:28px; left:20%; right:20%; height:2px; background:linear-gradient(90deg,var(--blue),var(--green)); border-radius:2px; }
+        .step { text-align: center; }
+        .step-num { width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg,var(--navy),var(--blue)); color:#fff; font-weight:900; font-size:1.1rem; display:flex; align-items:center; justify-content:center; margin: 0 auto 20px; box-shadow: 0 4px 18px rgba(29,78,216,0.3); position:relative; z-index:1; }
+        .step-title { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+        .step-text { font-size: 0.875rem; color: var(--gray-600); line-height: 1.65; }
+
+        /* TESTIMONIALS */
+        .testimonials { background: linear-gradient(140deg, #0F2744, #1a3a60); color: #fff; }
+        .testimonials-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; margin-top: 48px; }
+        .t-card { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); border-radius: 22px; padding: 28px 24px; transition: all 0.3s; }
+        .t-card:hover { background: rgba(255,255,255,0.11); transform: translateY(-3px); }
+        .t-stars { color: #FBBF24; font-size: 1rem; margin-bottom: 14px; }
+        .t-text { font-size: 0.88rem; color: #CBD5E1; line-height: 1.7; margin-bottom: 20px; font-style: italic; }
+        .t-author { display: flex; align-items: center; gap: 12px; }
+        .t-avatar { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg,#3B82F6,#6366F1); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:0.9rem; color:#fff; flex-shrink:0; }
+        .t-name { font-weight: 700; font-size: 0.875rem; }
+        .t-loc { font-size: 0.75rem; color: #64748B; margin-top: 2px; }
+        .t-verified { font-size: 0.68rem; color: #4ADE80; margin-top: 3px; }
+
+        /* OFFER */
+        .offer-section { background: var(--gray-50); }
+        .offer-box { max-width: 560px; margin: 48px auto 0; background: #fff; border-radius: 28px; padding: 48px 40px; box-shadow: 0 20px 60px rgba(0,0,0,0.1); border: 2px solid var(--gray-200); text-align: center; }
+        .offer-title { font-size: 1.6rem; font-weight: 900; color: var(--navy); margin-bottom: 8px; }
+        .offer-sub { color: var(--gray-600); font-size: 0.9rem; margin-bottom: 28px; }
+        .offer-price { font-size: 3.2rem; font-weight: 900; color: var(--green); line-height: 1; margin-bottom: 4px; }
+        .offer-was { font-size: 0.9rem; color: var(--gray-400); text-decoration: line-through; margin-bottom: 24px; }
+        .countdown { display: flex; justify-content: center; gap: 14px; margin-bottom: 28px; padding: 18px; background: #FEF2F2; border-radius: 16px; border: 1px dashed #FCA5A5; }
+        .cd-item { text-align: center; }
+        .cd-num { font-size: 1.75rem; font-weight: 900; color: var(--red); line-height: 1; }
+        .cd-lbl { font-size: 0.6rem; color: var(--gray-400); text-transform: uppercase; font-weight: 600; margin-top: 4px; letter-spacing: 0.04em; }
+        .cd-sep { font-size: 1.5rem; font-weight: 900; color: var(--red); align-self: flex-start; padding-top: 4px; }
+        .offer-includes { text-align: left; background: var(--gray-50); border-radius: 16px; padding: 20px 24px; margin-bottom: 28px; }
+        .oi-title { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--gray-400); margin-bottom: 14px; }
+        .oi-item { display: flex; align-items: center; gap: 10px; font-size: 0.875rem; color: var(--gray-700); font-weight: 500; margin-bottom: 10px; }
+        .oi-item:last-child { margin-bottom: 0; }
+        .oi-check { color: var(--green); font-size: 1rem; }
+        .pay-logos { display: flex; justify-content: center; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+        .pay-logo { padding: 6px 12px; background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 8px; font-size: 0.68rem; font-weight: 700; color: var(--gray-600); }
+
+        /* FAQ */
+        .faq { background: #fff; }
+        .faq-list { max-width: 720px; margin: 48px auto 0; display: flex; flex-direction: column; gap: 12px; }
+        .faq-item { border: 1px solid var(--gray-200); border-radius: 16px; overflow: hidden; }
+        .faq-q { width: 100%; padding: 20px 24px; text-align: left; background: #fff; border: none; font-family: inherit; font-size: 0.95rem; font-weight: 600; color: var(--gray-800); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; transition: background 0.2s; }
+        .faq-q:hover { background: var(--gray-50); }
+        .faq-arrow { transition: transform 0.3s; flex-shrink: 0; color: var(--blue); font-size: 1.1rem; }
+        .faq-item.open .faq-arrow { transform: rotate(180deg); }
+        .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+        .faq-a-inner { padding: 0 24px 20px; font-size: 0.875rem; color: var(--gray-600); line-height: 1.75; border-top: 1px solid var(--gray-100); padding-top: 16px; }
+        .faq-item.open .faq-a { max-height: 220px; }
+
+        /* FOOTER */
+        .footer { background: var(--navy); color: #64748B; padding: 56px 0 32px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 40px; }
+        .footer-logo { font-size: 1.4rem; font-weight: 900; color: #fff; margin-bottom: 12px; }
+        .footer-logo span { color: #60A5FA; }
+        .footer-desc { font-size: 0.85rem; line-height: 1.65; }
+        .footer-col-title { font-size: 0.78rem; font-weight: 700; color: #94A3B8; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.06em; }
+        .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+        .footer-links li a { font-size: 0.85rem; color: #4B5563; transition: color 0.2s; }
+        .footer-links li a:hover { color: #94A3B8; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+        .footer-bottom p { font-size: 0.78rem; }
+
+        /* RESPONSIVE */
+        @media (max-width: 920px) {
+            .hero .container, .product-showcase, .problem-grid { grid-template-columns: 1fr; }
+            .benefits-grid, .testimonials-grid, .steps-grid { grid-template-columns: 1fr 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .nav-links { display: none; }
+            .steps-grid::before { display: none; }
+            .trust-bar .container { gap: 28px; }
+            .fb-top, .fb-bot { display: none; }
+        }
+        @media (max-width: 600px) {
+            .section { padding: 64px 0; }
+            .hero { padding: 64px 0; }
+            .benefits-grid, .testimonials-grid, .steps-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+            .offer-box { padding: 32px 22px; }
+            .trust-bar .container { flex-direction: column; align-items: flex-start; gap: 20px; padding: 0 24px; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="announcement">
+    🚀 <strong>FREE SHIPPING</strong> to all of Ireland &nbsp;|&nbsp; Use code <strong>BACKPAIN10</strong> for an extra 10% off
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="container">
+        <div class="logo">Posture<span>Fix</span> Pro</div>
+        <ul class="nav-links">
+            <li><a href="#product">Product</a></li>
+            <li><a href="#benefits">Benefits</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#faq">FAQ</a></li>
+        </ul>
+        <button class="cart-btn" onclick="document.getElementById('offer').scrollIntoView({behavior:'smooth'})">
+            🛒 Order Now — €34.99
+        </button>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="container">
+        <div>
+            <div class="hero-badge"><span class="live-dot"></span> Trending in Ireland 🇮🇪</div>
+            <h1 class="hero-title">
+                Stop Letting <span class="highlight">Back Pain</span><br>
+                Run Your Life
+            </h1>
+            <p class="hero-sub">
+                PostureFix Pro gently corrects your posture, eliminates chronic back and neck pain, and has you sitting straight — without expensive physio sessions.
+            </p>
+            <div class="hero-price">
+                <span class="price-big">€34.99</span>
+                <span class="price-old">€69.99</span>
+                <span class="price-badge">-50% TODAY</span>
+            </div>
+            <button class="btn btn-primary btn-lg" onclick="document.getElementById('offer').scrollIntoView({behavior:'smooth'})">
+                🛒 Get Mine — Free Delivery 🇮🇪
+            </button>
+            <div class="hero-trust">
+                <span class="trust-pill"><span class="trust-pill-icon">🛡️</span> 30-Day Guarantee</span>
+                <span class="trust-pill"><span class="trust-pill-icon">🚚</span> Free IE Shipping</span>
+                <span class="trust-pill"><span class="trust-pill-icon">⭐</span> 10,000+ Happy Customers</span>
+                <span class="trust-pill"><span class="trust-pill-icon">💬</span> Live Chat Support</span>
+            </div>
+        </div>
+
+        <div class="product-visual">
+            <div class="product-card">
+                <div class="floating-badge fb-top"><span class="fb-stars">★★★★★</span> 4.9 / 5</div>
+                <div class="floating-badge fb-bot">✅ 10,847 sold in Ireland</div>
+                <div class="product-img-box">
+                    <svg viewBox="0 0 200 260" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:180px;position:relative;z-index:1;">
+                        <!-- Head -->
+                        <ellipse cx="100" cy="52" rx="28" ry="30" fill="#FDDCB5" stroke="#E8C49A" stroke-width="1.5"/>
+                        <!-- Neck -->
+                        <rect x="89" y="78" width="22" height="20" rx="5" fill="#FDDCB5" stroke="#E8C49A" stroke-width="1.5"/>
+                        <!-- Shoulders -->
+                        <path d="M44 105 Q100 88 156 105" stroke="#1E3A5F" stroke-width="12" stroke-linecap="round" fill="none"/>
+                        <!-- Brace body -->
+                        <path d="M82 108 L60 155 L80 168 L100 142 L120 168 L140 155 L118 108 Z" fill="#1D4ED8" opacity="0.92"/>
+                        <!-- Horizontal strap -->
+                        <rect x="56" y="152" width="88" height="14" rx="7" fill="#1D4ED8"/>
+                        <!-- Center buckle -->
+                        <rect x="82" y="144" width="36" height="28" rx="7" fill="#60A5FA"/>
+                        <rect x="87" y="149" width="26" height="18" rx="4" fill="#1D4ED8"/>
+                        <circle cx="100" cy="158" r="5" fill="#93C5FD"/>
+                        <!-- Shoulder pads -->
+                        <ellipse cx="68" cy="116" rx="15" ry="11" fill="#3B82F6"/>
+                        <ellipse cx="132" cy="116" rx="15" ry="11" fill="#3B82F6"/>
+                        <!-- Arms -->
+                        <path d="M56 113 L36 160" stroke="#FDDCB5" stroke-width="18" stroke-linecap="round"/>
+                        <path d="M144 113 L164 160" stroke="#FDDCB5" stroke-width="18" stroke-linecap="round"/>
+                        <!-- Hands -->
+                        <ellipse cx="34" cy="168" rx="13" ry="10" fill="#FDDCB5"/>
+                        <ellipse cx="166" cy="168" rx="13" ry="10" fill="#FDDCB5"/>
+                        <!-- Spine alignment line -->
+                        <path d="M100 98 L100 220" stroke="#4ADE80" stroke-width="2.5" stroke-dasharray="6 4" opacity="0.85"/>
+                        <!-- Check badge -->
+                        <circle cx="148" cy="72" r="18" fill="#16A34A" filter="drop-shadow(0 3px 8px rgba(22,163,74,0.4))"/>
+                        <path d="M140 72 L146 78 L156 64" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <!-- Torso / legs suggestion -->
+                        <path d="M82 182 Q100 198 118 182 L124 230 Q100 244 76 230 Z" fill="#FDDCB5" opacity="0.5"/>
+                        <rect x="76" y="228" width="22" height="28" rx="8" fill="#1E3A5F" opacity="0.8"/>
+                        <rect x="102" y="228" width="22" height="28" rx="8" fill="#1E3A5F" opacity="0.8"/>
+                    </svg>
+                </div>
+                <div class="product-stats-row">
+                    <div class="ps-item"><div class="ps-num">30 Days</div><div class="ps-label">Results</div></div>
+                    <div class="ps-item"><div class="ps-num">4 Sizes</div><div class="ps-label">S M L XL</div></div>
+                    <div class="ps-item"><div class="ps-num">4.9★</div><div class="ps-label">Rating</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+    <div class="container">
+        <div class="ti"><div class="ti-icon">🚚</div><div class="ti-text"><strong>Free Delivery</strong><span>All over Ireland</span></div></div>
+        <div class="ti"><div class="ti-icon">🛡️</div><div class="ti-text"><strong>30-Day Returns</strong><span>No questions asked</span></div></div>
+        <div class="ti"><div class="ti-icon">✅</div><div class="ti-text"><strong>10,000+ Sold</strong><span>Across Ireland</span></div></div>
+        <div class="ti"><div class="ti-icon">🔒</div><div class="ti-text"><strong>Secure Payment</strong><span>Visa · Mastercard · PayPal</span></div></div>
+    </div>
+</div>
+
+<!-- PROBLEM SECTION -->
+<section class="section problem">
+    <div class="container">
+        <div class="problem-grid">
+            <div>
+                <div class="problem-tag">⚠️ Does this sound familiar?</div>
+                <h2 class="headline-lg" style="color:#fff; margin-bottom:14px;">Remote Work Is<br>Destroying Your Back</h2>
+                <p style="color:#94A3B8; font-size:0.95rem; line-height:1.7; max-width:440px;">Millions of Irish workers sit hunched over screens for 8+ hours daily. The result? Chronic pain, poor posture, and soaring physio bills.</p>
+                <ul class="problem-list">
+                    <li class="problem-item">
+                        <span class="pi-icon">😣</span>
+                        <div><div class="pi-title">Neck &amp; shoulder tension every evening</div><div class="pi-sub">After long Zoom calls and screen time, stiffness becomes your constant companion</div></div>
+                    </li>
+                    <li class="problem-item">
+                        <span class="pi-icon">💸</span>
+                        <div><div class="pi-title">Physio sessions costing €60–€90 each</div><div class="pi-sub">Temporary relief that never fixes the root cause — your posture</div></div>
+                    </li>
+                    <li class="problem-item">
+                        <span class="pi-icon">📉</span>
+                        <div><div class="pi-title">Productivity dropping from constant discomfort</div><div class="pi-sub">Hard to focus when you're adjusting your position every few minutes</div></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-box"><div class="stat-big">80%</div><div class="stat-sub">of Irish adults experience back pain at some point in their life</div></div>
+                <div class="stat-box"><div class="stat-big">€1.2B</div><div class="stat-sub">annual cost of back pain to the Irish healthcare system</div></div>
+                <div class="stat-box"><div class="stat-big">68%</div><div class="stat-sub">of remote workers report worsening posture since working from home</div></div>
+                <div class="stat-box"><div class="stat-big">3–5h</div><div class="stat-sub">average time Irish people spend hunched forward each day</div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PRODUCT SECTION -->
+<section class="section" id="product">
+    <div class="container">
+        <div class="product-showcase">
+            <div class="product-main-img">
+                <svg viewBox="0 0 280 360" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:260px;position:relative;z-index:1;">
+                    <ellipse cx="140" cy="58" rx="40" ry="44" fill="#FDDCB5" stroke="#E8C49A" stroke-width="2"/>
+                    <rect x="122" y="98" width="36" height="26" rx="7" fill="#FDDCB5" stroke="#E8C49A" stroke-width="2"/>
+                    <path d="M60 140 Q140 116 220 140" stroke="#0F2744" stroke-width="14" stroke-linecap="round" fill="none"/>
+                    <path d="M114 148 L84 212 L112 230 L140 196 L168 230 L196 212 L166 148 Z" fill="#1D4ED8"/>
+                    <rect x="80" y="208" width="120" height="18" rx="9" fill="#1D4ED8"/>
+                    <rect x="118" y="198" width="44" height="34" rx="9" fill="#60A5FA"/>
+                    <rect x="124" y="204" width="32" height="22" rx="5" fill="#1D4ED8"/>
+                    <circle cx="140" cy="215" r="6" fill="#93C5FD"/>
+                    <ellipse cx="96" cy="158" rx="20" ry="15" fill="#3B82F6"/>
+                    <ellipse cx="184" cy="158" rx="20" ry="15" fill="#3B82F6"/>
+                    <path d="M78 152 L50 225" stroke="#FDDCB5" stroke-width="26" stroke-linecap="round"/>
+                    <path d="M202 152 L230 225" stroke="#FDDCB5" stroke-width="26" stroke-linecap="round"/>
+                    <ellipse cx="48" cy="236" rx="18" ry="14" fill="#FDDCB5"/>
+                    <ellipse cx="232" cy="236" rx="18" ry="14" fill="#FDDCB5"/>
+                    <path d="M114 248 Q140 268 166 248 L174 320 Q140 340 106 320 Z" fill="#FDDCB5" opacity="0.6"/>
+                    <rect x="104" y="318" width="28" height="36" rx="10" fill="#1E3A5F"/>
+                    <rect x="148" y="318" width="28" height="36" rx="10" fill="#1E3A5F"/>
+                    <path d="M140 128 L140 318" stroke="#4ADE80" stroke-width="3" stroke-dasharray="7 5" opacity="0.8"/>
+                    <path d="M158 170 L172 170 M165 163 L172 170 L165 177" stroke="#4ADE80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M158 225 L172 225 M165 218 L172 225 L165 232" stroke="#4ADE80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <!-- Brand tag -->
+                    <rect x="170" y="100" width="86" height="40" rx="12" fill="white" filter="drop-shadow(0 4px 12px rgba(0,0,0,0.12))"/>
+                    <text x="178" y="118" font-family="system-ui,sans-serif" font-size="9" font-weight="800" fill="#1D4ED8">PostureFix</text>
+                    <text x="181" y="132" font-family="system-ui,sans-serif" font-size="8" fill="#6B7280">PRO Series 2026</text>
+                </svg>
+            </div>
+
+            <div>
+                <div class="section-label">🔥 Best Seller</div>
+                <div class="product-rating">
+                    <span class="stars">★★★★★</span>
+                    <span class="rating-text"><strong>4.9 / 5</strong> — 2,847 verified reviews</span>
+                </div>
+                <h2 class="product-name">PostureFix Pro — Adjustable Back Posture Corrector</h2>
+                <p class="body-md" style="margin-bottom:22px;">Premium neoprene corrector that gently trains your muscles to hold perfect spinal alignment. Discreet under clothing, comfortable all day long.</p>
+
+                <div class="price-block">
+                    <span class="price-main">€34.99</span>
+                    <span class="price-was">€69.99</span>
+                    <span class="price-save">You Save €35</span>
+                </div>
+
+                <p class="size-label">Size: <strong id="sel-size">M</strong></p>
+                <div class="sizes">
+                    <button class="size-btn" onclick="selectSize(this,'S')">S</button>
+                    <button class="size-btn active" onclick="selectSize(this,'M')">M</button>
+                    <button class="size-btn" onclick="selectSize(this,'L')">L</button>
+                    <button class="size-btn" onclick="selectSize(this,'XL')">XL</button>
+                </div>
+
+                <div class="qty-row">
+                    <span class="qty-label">Quantity:</span>
+                    <div class="qty-ctrl">
+                        <button class="qty-btn" onclick="changeQty(-1)">−</button>
+                        <input type="text" class="qty-input" id="qty" value="1" readonly>
+                        <button class="qty-btn" onclick="changeQty(1)">+</button>
+                    </div>
+                </div>
+
+                <div class="stock-row"><div class="stock-dot"></div> Only 23 units left — order now!</div>
+
+                <button class="btn btn-primary btn-lg btn-full" style="margin-bottom:16px;" onclick="handleBuy()">
+                    🛒 Add to Cart — €34.99
+                </button>
+
+                <div class="promises">
+                    <div class="promise"><div class="promise-icon">🛡️</div> 30-day money-back guarantee, no questions asked</div>
+                    <div class="promise"><div class="promise-icon">🚚</div> Free tracked shipping to all of Ireland</div>
+                    <div class="promise"><div class="promise-icon">📦</div> Arrives in 3–5 business days</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="section benefits" id="benefits">
+    <div class="container">
+        <div class="text-center">
+            <div class="section-label">Why It Works</div>
+            <h2 class="headline-lg" style="margin-bottom:14px;">Built For Real Results</h2>
+            <p class="body-lg" style="max-width:540px; margin:0 auto;">Every detail is engineered for effective, comfortable posture correction.</p>
+        </div>
+        <div class="benefits-grid">
+            <div class="benefit-card"><div class="b-icon">🧘</div><h3 class="b-title">Instant Correction</h3><p class="b-text">Pulls your shoulders back and aligns your spine the second you put it on. Feel the difference immediately.</p></div>
+            <div class="benefit-card"><div class="b-icon">🌬️</div><h3 class="b-title">Breathable & Comfy</h3><p class="b-text">Premium neoprene with mesh lining keeps you cool and comfortable all day. Designed for 2–4 hours of daily wear.</p></div>
+            <div class="benefit-card"><div class="b-icon">🎯</div><h3 class="b-title">Perfect Fit Guaranteed</h3><p class="b-text">4 sizes (S/M/L/XL) with precision adjustment straps ensure the right fit for every body type.</p></div>
+            <div class="benefit-card"><div class="b-icon">💊</div><h3 class="b-title">Drug-Free Pain Relief</h3><p class="b-text">Trains your muscles to hold correct position naturally. Chronic back and neck pain fade — no medication needed.</p></div>
+            <div class="benefit-card"><div class="b-icon">👔</div><h3 class="b-title">Invisible Under Clothes</h3><p class="b-text">Slim profile sits flat. Completely hidden under shirts, blouses, and jumpers. Wear it anywhere, anytime.</p></div>
+            <div class="benefit-card"><div class="b-icon">📈</div><h3 class="b-title">94% Success Rate</h3><p class="b-text">94% of customers report noticeable posture improvement within the first 30 days of consistent use.</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section how-it-works">
+    <div class="container">
+        <div class="text-center">
+            <div class="section-label">Simple Process</div>
+            <h2 class="headline-lg" style="margin-bottom:14px;">3 Steps to a Pain-Free Back</h2>
+            <p class="body-lg" style="max-width:500px;margin:0 auto;">No physio needed. No complicated exercises. Just wear it, feel it, fix it.</p>
+        </div>
+        <div class="steps-grid">
+            <div class="step"><div class="step-num">1</div><h3 class="step-title">Put It On</h3><p class="step-text">Slide your arms through and adjust the straps for a snug fit. Takes under 30 seconds — no help needed.</p></div>
+            <div class="step"><div class="step-num">2</div><h3 class="step-title">Wear Daily</h3><p class="step-text">Wear 2–4 hours per day while working or on the go. Build the habit gradually over 3–4 weeks.</p></div>
+            <div class="step"><div class="step-num">3</div><h3 class="step-title">Feel the Change</h3><p class="step-text">Your muscles remember the correct position. Within 30 days, perfect posture becomes your natural default.</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section testimonials" id="reviews">
+    <div class="container">
+        <div class="text-center">
+            <div class="section-label" style="background:rgba(255,255,255,0.1);color:#93C5FD;border-color:rgba(255,255,255,0.2);">Real Reviews 🇮🇪</div>
+            <h2 class="headline-lg" style="color:#fff;margin-top:12px;margin-bottom:12px;">What Irish Customers Say</h2>
+            <p style="color:#94A3B8;max-width:480px;margin:0 auto;">Over 2,800 verified reviews from real customers across Ireland.</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="t-card">
+                <div class="t-stars">★★★★★</div>
+                <p class="t-text">"I've been working from home in Dublin for 3 years and my back was getting worse every month. After 3 weeks with PostureFix Pro, I can sit through full workdays without pain. My physio even asked what I was doing differently!"</p>
+                <div class="t-author">
+                    <div class="t-avatar">SL</div>
+                    <div><div class="t-name">Siobhán L.</div><div class="t-loc">📍 Dublin 4</div><div class="t-verified">✅ Verified Purchase</div></div>
+                </div>
+            </div>
+            <div class="t-card">
+                <div class="t-stars">★★★★★</div>
+                <p class="t-text">"Was sceptical at first — thought it'd be uncomfortable. Wore it for 2 hours on day one and already felt relief. Now 5 weeks in and I look forward to putting it on. Worth every cent at this price."</p>
+                <div class="t-author">
+                    <div class="t-avatar">CM</div>
+                    <div><div class="t-name">Ciarán M.</div><div class="t-loc">📍 Cork City</div><div class="t-verified">✅ Verified Purchase</div></div>
+                </div>
+            </div>
+            <div class="t-card">
+                <div class="t-stars">★★★★★</div>
+                <p class="t-text">"Bought this for my mam who has chronic back pain. She was using it every day within a week. She says it's better than the brace her GP recommended — at a fraction of the price. Brilliant product."</p>
+                <div class="t-author">
+                    <div class="t-avatar">AO</div>
+                    <div><div class="t-name">Aoife O'B.</div><div class="t-loc">📍 Galway</div><div class="t-verified">✅ Verified Purchase</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- OFFER -->
+<section class="section offer-section" id="offer">
+    <div class="container">
+        <div class="text-center">
+            <div class="section-label">⏰ Limited Time Offer</div>
+            <h2 class="headline-lg" style="margin-bottom:8px;">Get Yours Before the Price Goes Up</h2>
+            <p class="body-lg">Sale ends when the countdown hits zero — don't miss it.</p>
+        </div>
+        <div class="offer-box">
+            <div class="offer-title">PostureFix Pro</div>
+            <div class="offer-sub">The #1 Posture Corrector in Ireland 🇮🇪</div>
+            <div class="offer-price">€34.99</div>
+            <div class="offer-was">Regular price €69.99 — You save €35.00</div>
+            <div class="countdown">
+                <div class="cd-item"><div class="cd-num" id="cd-h">02</div><div class="cd-lbl">Hours</div></div>
+                <div class="cd-sep">:</div>
+                <div class="cd-item"><div class="cd-num" id="cd-m">47</div><div class="cd-lbl">Mins</div></div>
+                <div class="cd-sep">:</div>
+                <div class="cd-item"><div class="cd-num" id="cd-s">33</div><div class="cd-lbl">Secs</div></div>
+            </div>
+            <div class="offer-includes">
+                <div class="oi-title">What's included in your order</div>
+                <div class="oi-item"><span class="oi-check">✓</span> PostureFix Pro Corrector (your chosen size)</div>
+                <div class="oi-item"><span class="oi-check">✓</span> 30-Day Posture Correction Plan (PDF guide)</div>
+                <div class="oi-item"><span class="oi-check">✓</span> Free tracked delivery to Ireland</div>
+                <div class="oi-item"><span class="oi-check">✓</span> 30-day money-back guarantee</div>
+                <div class="oi-item"><span class="oi-check">✓</span> Lifetime customer support</div>
+            </div>
+            <button class="btn btn-primary btn-lg btn-full" onclick="handleBuy()" style="font-size:1.1rem;padding:22px 48px;">
+                🛒 Order Now — €34.99
+            </button>
+            <p style="margin-top:12px;font-size:0.78rem;color:#9CA3AF;">🔒 Secure Checkout &nbsp;·&nbsp; Free Returns &nbsp;·&nbsp; Ships within 24h</p>
+            <div class="pay-logos">
+                <span class="pay-logo">VISA</span>
+                <span class="pay-logo">Mastercard</span>
+                <span class="pay-logo">PayPal</span>
+                <span class="pay-logo">Apple Pay</span>
+                <span class="pay-logo">Google Pay</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq" id="faq">
+    <div class="container">
+        <div class="text-center">
+            <div class="section-label">Got Questions?</div>
+            <h2 class="headline-lg" style="margin-bottom:8px;">Frequently Asked Questions</h2>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)">How long until I see results? <span class="faq-arrow">▾</span></button>
+                <div class="faq-a"><div class="faq-a-inner">Most customers feel immediate relief when wearing the brace. Lasting improvement develops within 3–4 weeks of consistent daily use (2–4 hours per day). 94% of our customers report noticeable improvement within 30 days. If you don't, we'll refund you — no questions asked.</div></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)">How do I choose the right size? <span class="faq-arrow">▾</span></button>
+                <div class="faq-a"><div class="faq-a-inner">Measure your chest circumference: S = 60–80 cm, M = 80–95 cm, L = 95–110 cm, XL = 110–130 cm. If between sizes, size up for comfort. Still unsure? Email us and we'll help you find the perfect fit before you order.</div></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)">How long does delivery take to Ireland? <span class="faq-arrow">▾</span></button>
+                <div class="faq-a"><div class="faq-a-inner">We ship from our European warehouse. Delivery to Ireland takes 3–5 business days. All orders include a tracking number sent to your email within 24 hours of dispatch. Shipping is completely free on all Irish orders.</div></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)">What if it doesn't work for me? <span class="faq-arrow">▾</span></button>
+                <div class="faq-a"><div class="faq-a-inner">We offer a 30-day no-questions-asked money-back guarantee. If you're not satisfied for any reason — wrong size, not comfortable, or simply changed your mind — contact us within 30 days and we'll refund 100% of your purchase price, including shipping.</div></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)">Can I wear it under my work clothes? <span class="faq-arrow">▾</span></button>
+                <div class="faq-a"><div class="faq-a-inner">Absolutely. The PostureFix Pro is designed to be discreet. Its slim profile sits flat against your body, completely invisible under shirts, blouses, and jumpers. Many customers wear it through their entire work day without anyone noticing.</div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <div class="footer-logo">Posture<span>Fix</span> Pro</div>
+                <p class="footer-desc">Helping Irish people live and work without back pain. Built for the remote-work generation.</p>
+            </div>
+            <div>
+                <div class="footer-col-title">Shop</div>
+                <ul class="footer-links">
+                    <li><a href="#product">PostureFix Pro</a></li>
+                    <li><a href="#offer">Order Now</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                </ul>
+            </div>
+            <div>
+                <div class="footer-col-title">Support</div>
+                <ul class="footer-links">
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#">Shipping Info</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <div class="footer-col-title">Legal</div>
+                <ul class="footer-links">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                    <li><a href="#">GDPR</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 PostureFix Pro Ireland. All rights reserved. | VAT IE registered</p>
+            <div style="font-size:1.2rem;">🇮🇪 🇪🇺</div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    function selectSize(btn, size) {
+        document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('sel-size').textContent = size;
+    }
+    function changeQty(d) {
+        const el = document.getElementById('qty');
+        let v = parseInt(el.value) + d;
+        if (v < 1) v = 1;
+        if (v > 10) v = 10;
+        el.value = v;
+    }
+    function handleBuy() {
+        const qty = document.getElementById('qty').value;
+        const size = document.getElementById('sel-size').textContent;
+        const total = (34.99 * parseInt(qty)).toFixed(2);
+        alert(`✅ Order Summary\n\nProduct: PostureFix Pro\nSize: ${size}\nQty: ${qty}\nTotal: €${total}\n\nThank you! (This is a prototype store)`);
+    }
+    function toggleFaq(btn) {
+        const item = btn.closest('.faq-item');
+        const open = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!open) item.classList.add('open');
+    }
+    // Countdown
+    (function() {
+        let t = 2 * 3600 + 47 * 60 + 33;
+        setInterval(() => {
+            if (t <= 0) t = 3600;
+            t--;
+            const h = String(Math.floor(t / 3600)).padStart(2, '0');
+            const m = String(Math.floor((t % 3600) / 60)).padStart(2, '0');
+            const s = String(t % 60).padStart(2, '0');
+            const hEl = document.getElementById('cd-h');
+            const mEl = document.getElementById('cd-m');
+            const sEl = document.getElementById('cd-s');
+            if (hEl) hEl.textContent = h;
+            if (mEl) mEl.textContent = m;
+            if (sEl) sEl.textContent = s;
+        }, 1000);
+    })();
+    // Scroll reveal
+    const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.style.opacity = '1';
+                e.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.benefit-card, .t-card, .step, .stat-box, .problem-item').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(22px)';
+        el.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
+        obs.observe(el);
+    });
+</script>
+</body>
+</html>
