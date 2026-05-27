@@ -521,8 +521,6 @@
     <div class="foot-b"><p>© 2026 PostureFix Pro Ireland. All rights reserved. | VAT IE registered</p><div>🇮🇪 🇪🇺</div></div>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script>
 // CURSOR
 const dot = document.getElementById('cur-dot'), ring = document.getElementById('cur-ring');
@@ -534,7 +532,7 @@ document.querySelectorAll('button,a,.bcard,.fq,.sbtn').forEach(el => {
     el.addEventListener('mouseleave', () => document.body.classList.remove('hov'));
 });
 
-// SCROLL
+// SCROLL PROGRESS + NAV
 window.addEventListener('scroll', () => {
     const s = document.documentElement.scrollTop, h = document.documentElement.scrollHeight - window.innerHeight;
     document.getElementById('prog').style.width = (s/h*100)+'%';
@@ -544,22 +542,43 @@ window.addEventListener('scroll', () => {
 // HERO WORDS
 document.querySelectorAll('.hero-h1 .w').forEach((w, i) => { setTimeout(() => w.classList.add('up'), 300 + i*80); });
 
-// GSAP
-if (typeof gsap !== 'undefined') {
-    gsap.registerPlugin(ScrollTrigger);
-    document.querySelectorAll('.counter').forEach(el => {
-        const t = parseFloat(el.dataset.t), dec = el.hasAttribute('data-dec');
-        ScrollTrigger.create({ trigger: el, start: 'top 85%', once: true,
-            onEnter: () => { const o = {v:0}; gsap.to(o, { v:t, duration:2, ease:'power2.out', onUpdate: () => el.textContent = dec ? o.v.toFixed(1) : Math.round(o.v) }); }
-        });
-    });
-    gsap.utils.toArray('.sbox,.bcard,.srow').forEach(el => {
-        gsap.from(el, { opacity:0, y:28, duration:.7, ease:'power2.out', scrollTrigger: { trigger:el, start:'top 88%', once:true } });
-    });
-    gsap.utils.toArray('.sec-title').forEach(el => {
-        gsap.from(el, { opacity:0, y:30, duration:.8, ease:'power3.out', scrollTrigger: { trigger:el, start:'top 88%', once:true } });
-    });
+// COUNTER ANIMATION — vanilla IntersectionObserver, no CDN needed
+function animateCounter(el) {
+    const target = parseFloat(el.dataset.t);
+    const isDecimal = el.hasAttribute('data-dec');
+    const duration = 2000;
+    const start = performance.now();
+    function ease(t) { return t < .5 ? 2*t*t : -1+(4-2*t)*t; }
+    function step(now) {
+        const p = Math.min((now - start) / duration, 1);
+        const val = target * ease(p);
+        el.textContent = isDecimal ? val.toFixed(1) : Math.round(val);
+        if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
 }
+
+const counterObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { animateCounter(e.target); counterObs.unobserve(e.target); } });
+}, { threshold: 0.3 });
+document.querySelectorAll('.counter').forEach(el => counterObs.observe(el));
+
+// SCROLL REVEAL — fade + slide up
+const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+        if (e.isIntersecting) {
+            e.target.style.opacity = '1';
+            e.target.style.transform = 'translateY(0)';
+            revealObs.unobserve(e.target);
+        }
+    });
+}, { threshold: 0.1 });
+document.querySelectorAll('.sbox,.bcard,.srow,.sec-title,.testi-hdr,.sec-sub').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(28px)';
+    el.style.transition = 'opacity .7s ease, transform .7s ease';
+    revealObs.observe(el);
+});
 
 // BENEFIT 3D TILT
 document.querySelectorAll('.bcard').forEach(card => {
