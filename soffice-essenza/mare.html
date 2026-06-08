@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mare — Soffice Essenza | The Sea Candle Collection</title>
+<meta name="description" content="Mare is Soffice Essenza's sea-inspired candle collection — sea salt, driftwood and Atlantic mist, hand-poured in soft seafoam and sandy beige tones.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  /* Mare-only motifs: gentle waves crossing the hero */
+  .mare-wave{
+    position:absolute; left:-15%; right:-15%;
+    height:46vh; bottom:-18vh;
+    border-radius:48% 52% 0 0 / 100% 100% 0 0;
+    opacity:.55;
+    animation: waveSway 16s ease-in-out infinite;
+  }
+  .mare-wave--1{ background: var(--accent-soft); bottom:-22vh; animation-duration:19s; }
+  .mare-wave--2{ background: var(--accent); opacity:.4; bottom:-26vh; animation-duration:14s; animation-delay:-4s; }
+  @keyframes waveSway{
+    0%,100%{ transform: translateX(-3%) scaleX(1); }
+    50%{ transform: translateX(3%) scaleX(1.06); }
+  }
+  .bubble{
+    position:absolute; border-radius:50%;
+    border:1px solid var(--accent-deep);
+    opacity:.3;
+    animation: bubbleUp 10s linear infinite;
+  }
+  @keyframes bubbleUp{
+    0%{ transform: translateY(10vh) scale(.6); opacity:0; }
+    15%{ opacity:.4; }
+    100%{ transform: translateY(-60vh) scale(1.1); opacity:0; }
+  }
+</style>
+</head>
+<body data-collection="mare">
+
+<div class="progress"></div>
+
+<!-- ========== NAV ========== -->
+<header class="nav">
+  <a href="index.html" class="nav__logo">Soffice Essenza <small>Hand-poured · Ireland</small></a>
+  <nav class="nav__links">
+    <a href="mare.html">Mare</a>
+    <a href="mini-pets.html">Mini Pets</a>
+    <a href="namaste.html">Namaste</a>
+    <a href="index.html#order">Order</a>
+  </nav>
+  <button class="nav__toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+</header>
+  <div class="nav__sheet">
+    <a href="index.html">Home <small>Soffice Essenza</small></a>
+    <a href="mare.html">Mare <small>The sea collection</small></a>
+    <a href="mini-pets.html">Mini Pets <small>Miniature animal candles</small></a>
+    <a href="namaste.html">Namaste <small>Stillness &amp; ritual</small></a>
+    <a href="index.html#order">Order <small>How it works</small></a>
+  </div>
+
+<!-- ========== HERO ========== -->
+<section class="hero">
+  <div class="hero__bg"></div>
+  <div aria-hidden="true">
+    <span class="bubble" style="width:14px;height:14px;left:18%;animation-delay:0s;"></span>
+    <span class="bubble" style="width:9px;height:9px;left:34%;animation-delay:-3s;animation-duration:13s;"></span>
+    <span class="bubble" style="width:20px;height:20px;left:62%;animation-delay:-6s;animation-duration:9s;"></span>
+    <span class="bubble" style="width:12px;height:12px;left:78%;animation-delay:-2s;animation-duration:12s;"></span>
+    <div class="mare-wave mare-wave--1"></div>
+    <div class="mare-wave mare-wave--2"></div>
+  </div>
+  <div class="container hero__content">
+    <p class="eyebrow" data-reveal>Collection 01 · Mare</p>
+    <h1 data-reveal style="--delay:.08s">Bottled ocean air,<br>poured into <em>calm</em>.</h1>
+    <p class="hero__lede" data-reveal style="--delay:.16s">
+      Mare — Italian for <em>sea</em> — is inspired by Ireland's wild Atlantic
+      coast: salt-kissed mornings, sun-bleached driftwood, and the quiet hush
+      of waves at dusk. Each candle is hand-poured in soft seafoam and sandy
+      beige tones, so the feeling of the coast lingers long after the flame goes out.
+    </p>
+    <div class="hero__actions" data-reveal style="--delay:.24s">
+      <a href="#scents" class="btn btn-solid">See the scents</a>
+      <a href="index.html#order" class="btn btn-ghost">How to order</a>
+    </div>
+  </div>
+  <div class="hero__scroll"><span>Scroll</span><span class="hero__scroll-line"></span></div>
+</section>
+
+<!-- ========== INTRO / STORY ========== -->
+<section class="section">
+  <div class="container">
+    <div class="split split--reverse">
+      <div data-reveal="right">
+        <p class="eyebrow">Where it comes from</p>
+        <h2 style="margin-top:.6rem; font-size: clamp(1.9rem, 4.6vw, 2.8rem);">A love letter to the Irish coastline.</h2>
+        <p class="mt-lg">Mare began with long walks along windswept beaches — collecting
+        driftwood, listening to the tide pull back over the stones, watching
+        fog roll in over the cliffs before breakfast. We wanted to bottle that
+        feeling: unhurried, briny, endlessly calming.</p>
+        <p>Every candle in this collection is poured in soft seafoam greens,
+        misty blues and sandy beige — colours pulled straight from a low-tide
+        morning. Light one, and the room slowly fills with salt air, warm
+        driftwood and the kind of quiet that only the sea can offer.</p>
+      </div>
+      <div data-reveal="left">
+        <div class="split__art">
+          <div class="glow"></div>
+          <div class="candle-icon" aria-hidden="true">
+            <svg width="160" height="160" viewBox="0 0 160 160" fill="none">
+              <circle cx="80" cy="80" r="58" fill="none" stroke="var(--accent-deep)" stroke-width="1" opacity=".35"/>
+              <circle class="breathe-ring" cx="80" cy="80" r="44" style="animation-delay:-1.5s"/>
+              <path d="M30 96 Q 55 84 80 96 T 130 96" stroke="var(--accent-deep)" stroke-width="1.4" fill="none" opacity=".5">
+                <animate attributeName="d" dur="6s" repeatCount="indefinite"
+                  values="M30 96 Q 55 84 80 96 T 130 96;
+                          M30 100 Q 55 92 80 100 T 130 100;
+                          M30 96 Q 55 84 80 96 T 130 96"/>
+              </path>
+              <path d="M30 110 Q 55 100 80 110 T 130 110" stroke="var(--accent-deep)" stroke-width="1" fill="none" opacity=".3">
+                <animate attributeName="d" dur="7s" repeatCount="indefinite"
+                  values="M30 110 Q 55 102 80 110 T 130 110;
+                          M30 106 Q 55 114 80 106 T 130 106;
+                          M30 110 Q 55 102 80 110 T 130 110"/>
+              </path>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SCENTS ========== -->
+<section class="section section--tinted" id="scents">
+  <div class="container">
+    <div class="section__head" data-reveal>
+      <p class="eyebrow">The scents</p>
+      <h2>Four ways to bring the coast indoors</h2>
+      <p>Each candle is hand-poured in small batches using soy wax and
+      skin-safe fragrance oils — clean burning, generously scented, finished
+      in a reusable sandy-beige glass.</p>
+    </div>
+    <div class="grid grid--2">
+      <article class="card" data-reveal style="--delay:0s">
+        <span class="card__mark">①</span>
+        <h3>Sea Salt &amp; Driftwood</h3>
+        <p>Mineral sea salt, sun-warmed driftwood and a breath of soft musk —
+        the smell of a quiet beach at low tide, just after the rain.</p>
+        <span class="card__note"><span class="swatch tone-mare"></span>Top notes: salt, citrus &amp; cedar</span>
+      </article>
+      <article class="card" data-reveal style="--delay:.08s">
+        <span class="card__mark">②</span>
+        <h3>Atlantic Mist</h3>
+        <p>Cool linen, sea spray and a whisper of bergamot — like morning fog
+        rolling slowly over the cliffs before the sun breaks through.</p>
+        <span class="card__note"><span class="swatch tone-mare"></span>Top notes: marine air, linen &amp; bergamot</span>
+      </article>
+      <article class="card" data-reveal style="--delay:.16s">
+        <span class="card__mark">③</span>
+        <h3>Linen &amp; Foam</h3>
+        <p>Clean cotton, white florals and gentle marine notes — soft and
+        airy, like sea foam settling quietly along the shoreline.</p>
+        <span class="card__note"><span class="swatch tone-mare"></span>Top notes: cotton, jasmine &amp; sea moss</span>
+      </article>
+      <article class="card" data-reveal style="--delay:.24s">
+        <span class="card__mark">④</span>
+        <h3>Coastal Dawn</h3>
+        <p>Bergamot, white tea and warm amber — the first soft light over a
+        calm harbour, just as the boats begin to stir.</p>
+        <span class="card__note"><span class="swatch tone-mare"></span>Top notes: bergamot, white tea &amp; amber</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== GALLERY / DETAILS ========== -->
+<section class="section">
+  <div class="container">
+    <div class="section__head" data-reveal>
+      <p class="eyebrow">The little details</p>
+      <h2>Crafted slowly, finished gently</h2>
+    </div>
+    <div class="gallery">
+      <div class="gallery__tile" data-reveal="zoom" style="--delay:0s"><span>Hand-poured in small batches</span></div>
+      <div class="gallery__tile" data-reveal="zoom" style="--delay:.06s"><span>Soy wax, cotton wick</span></div>
+      <div class="gallery__tile" data-reveal="zoom" style="--delay:.12s"><span>Sandy-beige reusable glass</span></div>
+      <div class="gallery__tile" data-reveal="zoom" style="--delay:.18s"><span>Wrapped with care for posting</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== QUOTE ========== -->
+<section class="section">
+  <div class="container">
+    <div class="banner" data-reveal="zoom">
+      <blockquote>"Some scents don't just fill a room — they take you somewhere. Mare takes you to the edge of the water."</blockquote>
+      <cite>— Soffice Essenza, Mare collection</cite>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONTINUE EXPLORING ========== -->
+<section class="section section--tinted">
+  <div class="container">
+    <div class="section__head center" data-reveal>
+      <p class="eyebrow" style="justify-content:center;">Continue exploring</p>
+      <h2>More worlds from the studio</h2>
+    </div>
+    <div class="collections-nav">
+      <a href="index.html" class="collection-link" data-reveal style="--delay:0s">
+        <p class="eyebrow">Soffice Essenza</p>
+        <h3>Home</h3>
+        <p>Meet the studio and browse every collection in one place.</p>
+        <span class="arrow">Back to start <svg width="16" height="10" viewBox="0 0 16 10" fill="none"><path d="M1 5h13M9 1l5 4-5 4" stroke="currentColor" stroke-width="1.4"/></svg></span>
+      </a>
+      <a href="mini-pets.html" class="collection-link" data-reveal style="--delay:.08s; --accent:#f0c7d3; --accent-soft:#f8e3ea; --accent-deep:#d98fa6;">
+        <p class="eyebrow">Collection 02</p>
+        <h3>Mini Pets</h3>
+        <p>Tiny hand-sculpted animal candles in playful pastel shades.</p>
+        <span class="arrow">Discover Mini Pets <svg width="16" height="10" viewBox="0 0 16 10" fill="none"><path d="M1 5h13M9 1l5 4-5 4" stroke="currentColor" stroke-width="1.4"/></svg></span>
+      </a>
+      <a href="namaste.html" class="collection-link" data-reveal style="--delay:.16s; --accent:#c3cdab; --accent-soft:#e6ead9; --accent-deep:#93a172;">
+        <p class="eyebrow">Collection 03</p>
+        <h3>Namaste</h3>
+        <p>Warm, grounding scents for slow mornings and softer evenings.</p>
+        <span class="arrow">Discover Namaste <svg width="16" height="10" viewBox="0 0 16 10" fill="none"><path d="M1 5h13M9 1l5 4-5 4" stroke="currentColor" stroke-width="1.4"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CTA ========== -->
+<section class="section">
+  <div class="container">
+    <div class="cta" data-reveal>
+      <div class="cta__glow" aria-hidden="true"></div>
+      <div>
+        <h2>Bring the sea into your home.</h2>
+        <p>Tell us which Mare scents you'd like, how many, and where to send
+        them — we'll hand-pour your order and post it across Ireland with care.</p>
+      </div>
+      <a href="https://instagram.com/soffice.essenza" target="_blank" rel="noopener" class="btn">Order the Mare collection</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div>
+        <p class="footer__brand">Soffice Essenza<small>Hand-poured candles, made in Ireland 🇮🇪</small></p>
+      </div>
+      <div class="footer__links">
+        <div class="footer__col">
+          <h4>Collections</h4>
+          <a href="mare.html">Mare</a>
+          <a href="mini-pets.html">Mini Pets</a>
+          <a href="namaste.html">Namaste</a>
+        </div>
+        <div class="footer__col">
+          <h4>Studio</h4>
+          <a href="index.html#collections">Our story</a>
+          <a href="index.html#order">How to order</a>
+        </div>
+        <div class="footer__col">
+          <h4>Say hello</h4>
+          <a href="https://instagram.com/soffice.essenza" target="_blank" rel="noopener">Instagram</a>
+          <a href="mailto:hello@sofficeessenza.ie">hello@sofficeessenza.ie</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© <span data-year></span> Soffice Essenza — hand-poured in Ireland</span>
+      <span>Mare — "sea" in Italian</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

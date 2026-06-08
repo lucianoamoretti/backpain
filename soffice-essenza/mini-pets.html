@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mini Pets — Soffice Essenza | Miniature Animal Candles</title>
+<meta name="description" content="Mini Pets is Soffice Essenza's playful collection of hand-sculpted miniature animal candles in pastel pink, mint and lilac — small, sweet-scented and gift-ready.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  /* Mini Pets-only motifs: bouncy little shapes & sparkles */
+  .bouncy{
+    position:absolute; border-radius:42% 58% 56% 44% / 50% 46% 54% 50%;
+    animation: bounceSoft 4.2s var(--ease) infinite;
+  }
+  @keyframes bounceSoft{
+    0%, 100%{ transform: translateY(0) scale(1) rotate(0deg); }
+    35%{ transform: translateY(-22px) scale(1.04) rotate(-4deg); }
+    60%{ transform: translateY(0) scale(.98) rotate(2deg); }
+  }
+  .paw-trail{
+    position:absolute; inset:0; pointer-events:none; z-index:1; overflow:hidden;
+  }
+  .paw{
+    position:absolute;
+    width:9px; height:9px;
+    background: var(--accent-deep);
+    border-radius:50%;
+    opacity:0;
+    animation: pawFade 7s ease-in-out infinite;
+  }
+  @keyframes pawFade{
+    0%{ opacity:0; transform: scale(.4) translateY(0); }
+    20%{ opacity:.45; }
+    50%{ opacity:.25; transform: scale(1) translateY(-18px); }
+    100%{ opacity:0; transform: scale(.6) translateY(-40px); }
+  }
+</style>
+</head>
+<body data-collection="mini-pets">
+
+<div class="progress"></div>
+
+<!-- ========== NAV ========== -->
+<header class="nav">
+  <a href="index.html" class="nav__logo">Soffice Essenza <small>Hand-poured · Ireland</small></a>
+  <nav class="nav__links">
+    <a href="mare.html">Mare</a>
+    <a href="mini-pets.html">Mini Pets</a>
+    <a href="namaste.html">Namaste</a>
+    <a href="index.html#order">Order</a>
+  </nav>
+  <button class="nav__toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+</header>
+  <div class="nav__sheet">
+    <a href="index.html">Home <small>Soffice Essenza</small></a>
+    <a href="mare.html">Mare <small>The sea collection</small></a>
+    <a href="mini-pets.html">Mini Pets <small>Miniature animal candles</small></a>
+    <a href="namaste.html">Namaste <small>Stillness &amp; ritual</small></a>
+    <a href="index.html#order">Order <small>How it works</small></a>
+  </div>
+
+<!-- ========== HERO ========== -->
+<section class="hero">
+  <div class="hero__bg"></div>
+  <div aria-hidden="true">
+    <span class="bouncy tone-mini-pets" style="width:120px;height:120px;top:16%;right:10%;opacity:.55;animation-delay:-.6s;"></span>
+    <span class="bouncy tone-mare"      style="width:60px;height:60px;top:62%;right:30%;opacity:.4;animation-delay:-2.1s;animation-duration:5s;"></span>
+    <span class="bouncy tone-namaste"   style="width:80px;height:80px;top:70%;left:8%;opacity:.4;animation-delay:-3.4s;animation-duration:4.6s;"></span>
+    <span class="sparkle" style="width:8px;height:8px;top:30%;left:20%;animation-delay:-.4s;"></span>
+    <span class="sparkle" style="width:6px;height:6px;top:50%;left:48%;animation-delay:-1.6s;"></span>
+    <span class="sparkle" style="width:10px;height:10px;top:24%;left:62%;animation-delay:-2.4s;"></span>
+  </div>
+  <div class="container hero__content">
+    <p class="eyebrow" data-reveal>Collection 02 · Mini Pets</p>
+    <h1 data-reveal style="--delay:.08s">Tiny companions,<br>big <em>charm</em>.</h1>
+    <p class="hero__lede" data-reveal style="--delay:.16s">
+      A playful collection of hand-sculpted miniature candles shaped like
+      your favourite animals — sleepy cats, round hedgehogs, bunnies mid-hop.
+      Each one is a tiny sculpture first and a candle second, finished in
+      soft pastels and impossible not to smile at.
+    </p>
+    <div class="hero__actions" data-reveal style="--delay:.24s">
+      <a href="#pets" class="btn btn-solid">Meet the collection</a>
+      <a href="index.html#order" class="btn btn-ghost">How to order</a>
+    </div>
+  </div>
+  <div class="hero__scroll"><span>Scroll</span><span class="hero__scroll-line"></span></div>
+</section>
+
+<!-- ========== INTRO / STORY ========== -->
+<section class="section">
+  <div class="container">
+    <div class="split">
+      <div data-reveal="left">
+        <div class="split__art">
+          <div class="glow"></div>
+          <div class="candle-icon" aria-hidden="true">
+            <svg width="160" height="150" viewBox="0 0 160 150" fill="none">
+              <ellipse cx="80" cy="128" rx="62" ry="10" fill="var(--accent-deep)" opacity=".15"/>
+              <g>
+                <ellipse cx="80" cy="92" rx="46" ry="38" fill="var(--white)" stroke="var(--accent-deep)" stroke-width="1.3"/>
+                <circle cx="50" cy="60" r="14" fill="var(--accent-soft)" stroke="var(--accent-deep)" stroke-width="1"/>
+                <circle cx="110" cy="60" r="14" fill="var(--accent-soft)" stroke="var(--accent-deep)" stroke-width="1"/>
+                <circle cx="64" cy="90" r="3.4" fill="var(--ink)"/>
+                <circle cx="96" cy="90" r="3.4" fill="var(--ink)"/>
+                <path d="M74 100 Q80 106 86 100" stroke="var(--ink)" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+                <g>
+                  <animateTransform attributeName="transform" type="translate" values="0 0; 0 -6; 0 0" dur="3.6s" repeatCount="indefinite"/>
+                  <circle cx="40" cy="40" r="2.4" fill="var(--accent-deep)" opacity=".5"/>
+                  <circle cx="120" cy="36" r="3" fill="var(--accent-deep)" opacity=".4"/>
+                </g>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div data-reveal="right">
+        <p class="eyebrow">Where it comes from</p>
+        <h2 style="margin-top:.6rem; font-size: clamp(1.9rem, 4.6vw, 2.8rem);">Small things that make a big room feel softer.</h2>
+        <p class="mt-lg">Mini Pets started as an experiment — could a candle be
+        a tiny sculpture, too? We began shaping little animals out of soy
+        wax: a curled-up cat, a round hedgehog, a bunny with its ears tucked
+        in. Each one took dozens of tries to get the proportions just right —
+        round, soft, a little wobbly, and unbearably cute.</p>
+        <p>Now they sit on shelves and bedside tables across Ireland — loved
+        as much for how they look as for how they smell. Sweet, cosy scents
+        like vanilla cream and toasted marshmallow finish the feeling: small
+        joys, hand-made, one tiny pet at a time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== THE PETS ========== -->
+<section class="section section--tinted" id="pets" style="position:relative;">
+  <div class="paw-trail" aria-hidden="true">
+    <span class="paw" style="left:8%;  top:85%; animation-delay:0s;"></span>
+    <span class="paw" style="left:30%; top:78%; animation-delay:-1.4s;"></span>
+    <span class="paw" style="left:54%; top:88%; animation-delay:-2.8s;"></span>
+    <span class="paw" style="left:76%; top:80%; animation-delay:-4.2s;"></span>
+  </div>
+  <div class="container">
+    <div class="section__head" data-reveal>
+      <p class="eyebrow">Meet the collection</p>
+      <h2>Four tiny friends, four cosy scents</h2>
+      <p>Each Mini Pet is hand-sculpted from soy wax, hand-painted with soft
+      pastel details, and gently scented — small enough to fit in your palm,
+      sweet enough to make someone's day.</p>
+    </div>
+    <div class="grid grid--2">
+      <article class="card" data-reveal style="--delay:0s">
+        <span class="card__mark">🐱</span>
+        <h3>The Plump Cat — Vanilla Cream</h3>
+        <p>Curled into a perfect circle and dusted in soft blush pink. Smells
+        like warm vanilla and fresh cream — sweet, cosy, impossible to resist.</p>
+        <span class="card__note"><span class="swatch tone-mini-pets"></span>Scent: vanilla, cream &amp; soft musk</span>
+      </article>
+      <article class="card" data-reveal style="--delay:.08s">
+        <span class="card__mark">🦔</span>
+        <h3>The Round Hedgehog — Toasted Marshmallow</h3>
+        <p>All soft spikes and round edges, finished in gentle sage and cream.
+        Fills the room with toasted marshmallow and a hint of brown sugar.</p>
+        <span class="card__note"><span class="swatch tone-namaste"></span>Scent: marshmallow, sugar &amp; warm cream</span>
+      </article>
+      <article class="card" data-reveal style="--delay:.16s">
+        <span class="card__mark">🐰</span>
+        <h3>The Sleepy Bunny — Cotton Candy</h3>
+        <p>Ears tucked in, curled up small, finished in the softest lilac.
+        Smells like spun sugar with a gentle touch of vanilla musk.</p>
+        <span class="card__note"><span class="swatch" style="background:#d9c9e8;"></span>Scent: cotton candy, vanilla &amp; musk</span>
+      </article>
+      <article class="card" data-reveal style="--delay:.24s">
+        <span class="card__mark">🐻</span>
+        <h3>The Baby Bear — Warm Honey &amp; Oat</h3>
+        <p>Round-bellied and a little wobbly on its feet, in warm cream and
+        dusty rose. A cosy blend of honey, oat milk and soft amber.</p>
+        <span class="card__note"><span class="swatch tone-mare"></span>Scent: honey, oat milk &amp; amber</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== GALLERY ========== -->
+<section class="section">
+  <div class="container">
+    <div class="section__head" data-reveal>
+      <p class="eyebrow">The little details</p>
+      <h2>Made small, made with care</h2>
+    </div>
+    <div class="gallery">
+      <div class="gallery__tile" data-reveal="zoom" style="--delay:0s"><span>Hand-sculpted, one by one</span></div>
+      <div class="gallery__tile" data-reveal="zoom" style="--delay:.06s"><span>Hand-painted pastel details</span></div>
+      <div class="gallery__tile" data-reveal="zoom" style="--delay:.12s"><span>Pocket-sized &amp; gift-ready</span></div>
+      <div class="gallery__tile" data-reveal="zoom" style="--delay:.18s"><span>Wrapped in tissue &amp; ribbon</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== QUOTE ========== -->
+<section class="section">
+  <div class="container">
+    <div class="banner" data-reveal="zoom">
+      <blockquote>"Good things come in small packages — ours just happen to have ears, paws and a little pastel nose."</blockquote>
+      <cite>— Soffice Essenza, Mini Pets collection</cite>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONTINUE EXPLORING ========== -->
+<section class="section section--tinted">
+  <div class="container">
+    <div class="section__head center" data-reveal>
+      <p class="eyebrow" style="justify-content:center;">Continue exploring</p>
+      <h2>More worlds from the studio</h2>
+    </div>
+    <div class="collections-nav">
+      <a href="mare.html" class="collection-link" data-reveal style="--delay:0s; --accent:#aecdd0; --accent-soft:#e1edec; --accent-deep:#5f8b91;">
+        <p class="eyebrow">Collection 01</p>
+        <h3>Mare</h3>
+        <p>Sea salt, driftwood and quiet Atlantic mornings.</p>
+        <span class="arrow">Discover Mare <svg width="16" height="10" viewBox="0 0 16 10" fill="none"><path d="M1 5h13M9 1l5 4-5 4" stroke="currentColor" stroke-width="1.4"/></svg></span>
+      </a>
+      <a href="index.html" class="collection-link" data-reveal style="--delay:.08s">
+        <p class="eyebrow">Soffice Essenza</p>
+        <h3>Home</h3>
+        <p>Meet the studio and browse every collection in one place.</p>
+        <span class="arrow">Back to start <svg width="16" height="10" viewBox="0 0 16 10" fill="none"><path d="M1 5h13M9 1l5 4-5 4" stroke="currentColor" stroke-width="1.4"/></svg></span>
+      </a>
+      <a href="namaste.html" class="collection-link" data-reveal style="--delay:.16s; --accent:#c3cdab; --accent-soft:#e6ead9; --accent-deep:#93a172;">
+        <p class="eyebrow">Collection 03</p>
+        <h3>Namaste</h3>
+        <p>Warm, grounding scents for slow mornings and softer evenings.</p>
+        <span class="arrow">Discover Namaste <svg width="16" height="10" viewBox="0 0 16 10" fill="none"><path d="M1 5h13M9 1l5 4-5 4" stroke="currentColor" stroke-width="1.4"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CTA ========== -->
+<section class="section">
+  <div class="container">
+    <div class="cta" data-reveal>
+      <div class="cta__glow" aria-hidden="true"></div>
+      <div>
+        <h2>Find your tiny companion.</h2>
+        <p>Tell us which Mini Pets you'd like — and for whom — and we'll
+        hand-sculpt, pour and wrap your order with all the care it deserves.</p>
+      </div>
+      <a href="https://instagram.com/soffice.essenza" target="_blank" rel="noopener" class="btn">Order the Mini Pets collection</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div>
+        <p class="footer__brand">Soffice Essenza<small>Hand-poured candles, made in Ireland 🇮🇪</small></p>
+      </div>
+      <div class="footer__links">
+        <div class="footer__col">
+          <h4>Collections</h4>
+          <a href="mare.html">Mare</a>
+          <a href="mini-pets.html">Mini Pets</a>
+          <a href="namaste.html">Namaste</a>
+        </div>
+        <div class="footer__col">
+          <h4>Studio</h4>
+          <a href="index.html#collections">Our story</a>
+          <a href="index.html#order">How to order</a>
+        </div>
+        <div class="footer__col">
+          <h4>Say hello</h4>
+          <a href="https://instagram.com/soffice.essenza" target="_blank" rel="noopener">Instagram</a>
+          <a href="mailto:hello@sofficeessenza.ie">hello@sofficeessenza.ie</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© <span data-year></span> Soffice Essenza — hand-poured in Ireland</span>
+      <span>Mini Pets — small candles, big smiles</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
